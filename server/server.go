@@ -8,12 +8,14 @@ import (
 )
 
 // Init the server
-func initServer() (conf Config, router *mux.Router) {
-	config, err := config.loadConfig()
+func InitServer() {
+	config, err := loadConfig()
 	routes := initRoutes()
 	router := newRouters(routes)
 
-	return config, router
+	isServerOnline := startServer(config.Port, router)
+	fmt.Println("isServerOnline:", isServerOnline)
+
 }
 
 // Start the server
