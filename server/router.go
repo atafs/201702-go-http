@@ -18,10 +18,9 @@ type Route struct {
 type Routes []Route
 
 // Start the server
-func startServer(live bool) {
-	config, err := loadConfig()
+func startServer() {
 	routes := initRoutes()
-	router := newRouter(routes)
+	router := newRouters(routes)
 }
 
 // Create the array for all of the routes that our service listens to.

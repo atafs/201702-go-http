@@ -25,16 +25,14 @@ func loadConfig() (conf Config, err error) {
 	// Read the config file.
 	read, err := ioutil.ReadFile("conf.json")
 	if err != nil {
-		fmt.Println("Err: can't read the config file")
-		panic(err)
+		fmt.Println("Err: can't read the config file", err)
 	}
 	// Unmarshal the JSON
 	err = json.Unmarshal(read, &conf)
 	if err != nil {
-		fmt.Println("Err: parse the json to a struct")
-		panic(err)
+		fmt.Println("Err: parse the json to a struct", err)
 	}
 
-	fmt.Println("Ok: values retrieved:", config)
+	fmt.Println("Ok: values retrieved:", conf)
 	return conf, nil
 }

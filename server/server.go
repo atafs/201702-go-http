@@ -8,10 +8,10 @@ import (
 )
 
 // Init the server
-func initServer(live bool) (conf Config, router *mux.Router) {
-	config, err := LoadConfig()
-	routes := InitRoutes()
-	router := NewRouters(routes)
+func initServer() (conf Config, router *mux.Router) {
+	config, err := config.loadConfig()
+	routes := initRoutes()
+	router := newRouters(routes)
 
 	return config, router
 }
