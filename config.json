@@ -1,0 +1,11 @@
+
+{
+	"name": "americo",
+	"email": "americo@americo.com",
+	"password": "1234",
+	"custom": {
+		"first": "1",
+		"second": "2"
+	},
+	"port": "4321"
+}
