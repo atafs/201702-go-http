@@ -36,18 +36,21 @@ func ReadConfigFile() (config Config) {
 		log.Println("Error unmarshalling config:", err)
 		return
 	}
-	log.Println("Success loading config:", conf)
+
+	log.Println("Success in getting the config file", conf)
+	toString(conf)
 	return conf
 
 }
 
 // Print
-func ToString(config Config) {
-	log.Println("Success priting in a more a better format:")
+func toString(config Config) {
+	log.Println("Success in getting the config file in a better format:")
 	fmt.Println("\t=> Name:", config.Name)
 	fmt.Println("\t=> Email:", config.Email)
 	fmt.Println("\t=> Password:", config.Password)
 	fmt.Println("\t=> Custom.First:", config.Custom.First)
 	fmt.Println("\t=> Custom.Second:", config.Custom.Second)
 	fmt.Println("\t=> Port:", config.Port)
+	fmt.Println("")
 }

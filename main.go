@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/web-app-go/config"
+	"github.com/web-app-go/server"
 	"github.com/web-app-go/stringutil"
 )
 
@@ -13,6 +14,9 @@ func main() {
 
 	// Read from config
 	conf := config.ReadConfigFile()
-	config.ToString(conf)
+
+	// Start server
+	server.InitServer()
+	server.StartServer(conf.Port)
 
 }
