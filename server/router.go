@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/web-app-go/logger"
 )
 
 type Route struct {
@@ -59,7 +60,7 @@ func NewRouter(r Routes) *mux.Router {
 }
 
 func StartServer(portToUse string) {
-	log.Println("Server starting post " + portToUse + ". Listening.....")
+	logger.GetNotice("Server starting... port " + portToUse)
 
 	err := http.ListenAndServe(":"+portToUse, router)
 	if err != nil {
@@ -69,12 +70,12 @@ func StartServer(portToUse string) {
 
 // Print
 func toStringRoutes(routes Routes) {
-	log.Println("Success in creating the Routes:")
+	logger.GetNotice("Success in creating the Routes:")
 	for _, route := range routes {
-		fmt.Println("\t=> Name:", route.Name)
-		fmt.Println("\t=> Method:", route.Method)
-		fmt.Println("\t=> Pattern:", route.Pattern)
-		fmt.Println("\t=> HandlerFunc:", route.HandlerFunc)
+		logger.GetDebugf("\t=> Name:", route.Name)
+		logger.GetDebugf("\t=> Method:", route.Method)
+		logger.GetDebugf("\t=> Pattern:", route.Pattern)
+		log.Println("\t=> HandlerFunc:", route.HandlerFunc)
 		fmt.Println("")
 	}
 }

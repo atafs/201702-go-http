@@ -1,16 +1,21 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/web-app-go/config"
+	"github.com/web-app-go/logger"
 	"github.com/web-app-go/server"
 	"github.com/web-app-go/stringutil"
 )
 
 func main() {
+	// logger
+	logger.SetLogger()
+
 	// String
-	log.Printf(stringutil.Reverse("!oG ,olleH"))
+	logger.GetNotice(stringutil.Reverse("!oG ,olleH"))
+	fmt.Println("")
 
 	// Read from config
 	conf := config.ReadConfigFile()

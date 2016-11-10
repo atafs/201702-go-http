@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+
+	"github.com/web-app-go/logger"
 )
 
 // Config object that holds the information stored in config.json
@@ -37,7 +39,6 @@ func ReadConfigFile() (config Config) {
 		return
 	}
 
-	log.Println("Success in getting the config file", conf)
 	toString(conf)
 	return conf
 
@@ -45,12 +46,12 @@ func ReadConfigFile() (config Config) {
 
 // Print
 func toString(config Config) {
-	log.Println("Success in getting the config file in a better format:")
-	fmt.Println("\t=> Name:", config.Name)
-	fmt.Println("\t=> Email:", config.Email)
-	fmt.Println("\t=> Password:", config.Password)
-	fmt.Println("\t=> Custom.First:", config.Custom.First)
-	fmt.Println("\t=> Custom.Second:", config.Custom.Second)
-	fmt.Println("\t=> Port:", config.Port)
+	logger.GetNotice("Success in getting the config file in a better format:")
+	logger.GetDebugf("\t=> Name:", config.Name)
+	logger.GetDebugf("\t=> Email:", config.Email)
+	logger.GetDebugf("\t=> Password:", config.Password)
+	logger.GetDebugf("\t=> Custom.First:", config.Custom.First)
+	logger.GetDebugf("\t=> Custom.Second:", config.Custom.Second)
+	logger.GetDebugf("\t=> Port:", config.Port)
 	fmt.Println("")
 }
