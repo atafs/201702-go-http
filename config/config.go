@@ -29,7 +29,7 @@ func ReadConfigFile() (config Config) {
 	// Read from config
 	b, err := ioutil.ReadFile("config.json")
 	if err != nil {
-		log.Println("Error loading config:", err)
+		log.Println("Error loading config: ", err)
 		return
 	}
 
